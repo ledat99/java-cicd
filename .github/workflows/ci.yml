@@ -2,9 +2,9 @@ name: Spring Boot CI/CD Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "**" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "**" ]
 
 jobs:
   build:
@@ -31,7 +31,6 @@ jobs:
   publish-docker:
     needs: build # Chỉ chạy sau khi Job 'build' và test thành công
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' # Chỉ chạy khi push code lên nhánh main
 
     steps:
     - name: Checkout code
