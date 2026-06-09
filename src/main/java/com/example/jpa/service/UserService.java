@@ -20,7 +20,7 @@ public class UserService {
     @Transactional
     public User createUser(String name, String password, String bio, String avatarUrl) {
         if (userRepository.findByName(name).isPresent()) {
-            throw new IllegalArgumentException("Tên người dùng đã tồn tại: " + name);
+            throw new IllegalArgumentException("Tên người dùng đã tồn tại rồi: " + name);
         }
 
         Profile profile = new Profile();
